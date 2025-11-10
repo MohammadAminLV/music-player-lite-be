@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "title": "Donbal-E Man Begard",
+      "artist": "Kian Pourtorab",
+      "album": "This Side",
+      "poster": "https://static.cdn.asset.aparat.com/amc/AM-dHJhY2stNTA0-1754225979.jpg",
+      "url": "https://music.cdn.asset.aparat.com/aparat-music/AM-dHJhY2stNTA0-128-1754319332.mp3"
+    },
+    {
+      "title": "Khatereh Bazi",
+      "artist": "Kaveh Yaghmaei",
+      "album": "Manshour",
+      "poster": "https://static.cdn.asset.aparat.com/amc/AM-dHJhY2stMTY1MQ-1754231881.jpg",
+      "url": "https://music.cdn.asset.aparat.com/aparat-music/AM-dHJhY2stMTY1MQ-128-1754327620.mp3"
+    },
+    {
+      "title": "Gisooye Baran",
+      "artist": "Alireza Ghorbani",
+      "album": null,
+      "poster": "https://static.cdn.asset.aparat.com/amc/AM-dHJhY2stMTM4NDUy-1761849020.jpg",
+      "url": "https://music.cdn.asset.aparat.com/aparat-music/AM-dHJhY2stMTM4NDUy-1761848693.mp3"
+    },
+    {
+      "title": "Omr",
+      "artist": "Milad Derakhshani",
+      "album": null,
+      "poster": "https://static.cdn.asset.aparat.com/amc/AM-dHJhY2stMzM5ODA-1754234168.jpg",
+      "url": "https://music.cdn.asset.aparat.com/aparat-music/AM-dHJhY2stMzM5ODA-128-1754330634.mp3"
+    }
+  ]
+}
