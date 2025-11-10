@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -41,6 +42,18 @@ func readPayload(fileName string) (Payload, error) {
 	return p, nil
 }
 
+func urlExists(url string) bool {
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	resp, err := client.Head(url)
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+	return resp.StatusCode == http.StatusOK
+}
+
 func main() {
 	// Defaults
 	port := os.Getenv("PORT")
@@ -72,7 +85,15 @@ func main() {
 				c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to read data file", "detail": err.Error()})
 				return
 			}
-			c.JSON(http.StatusOK, payload)
+
+			validTracks := make([]Track, 0, len(payload.Data))
+			for _, t := range payload.Data {
+				if urlExists(t.URL) {
+					validTracks = append(validTracks, t)
+				}
+			}
+
+			c.JSON(http.StatusOK, Payload{Data: validTracks})
 		})
 
 		// GET /api/tracks/:index -> returns single track
@@ -88,7 +109,13 @@ func main() {
 				c.JSON(http.StatusNotFound, gin.H{"error": "track not found"})
 				return
 			}
-			c.JSON(http.StatusOK, payload.Data[idx])
+
+			track := payload.Data[idx]
+			if !urlExists(track.URL) {
+				c.JSON(http.StatusNotFound, gin.H{"error": "track not found (URL missing)"})
+				return
+			}
+			c.JSON(http.StatusOK, track)
 		})
 	}
 
