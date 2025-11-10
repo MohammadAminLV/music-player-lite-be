@@ -1,7 +1,7 @@
 # Simple Music Player app Back-end
 
 
-## Quick start (local)
+## Quick start
 Copy `data.json.example` to `data.json`
 ```bash
 go mod tidy
