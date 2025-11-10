@@ -27,7 +27,7 @@ WORKDIR /app
 COPY --from=builder /out/music-player-lite-be /app/music-player-lite-be
 
 # Copy default data.json into image so image is self-contained (override at run time with a volume if desired)
-COPY data.json /app/data.json
+COPY data.json.example /app/data.json
 
 # Ensure correct ownership
 RUN chown -R app:app /app
