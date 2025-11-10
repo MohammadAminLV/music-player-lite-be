@@ -1,4 +1,4 @@
-module github.com/MohammadAminLV/music-player-lite-backend
+module github.com/MohammadAminLV/music-player-lite-be
 
 go 1.24
 
